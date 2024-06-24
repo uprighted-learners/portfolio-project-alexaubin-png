@@ -1,27 +1,39 @@
-import './App.css';
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import {useState} from 'react'
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Resume from './components/Resume';
+import Projects from './components/Projects';
+import Navbar from './components/Navbar';
+import ImageGallery from './components/ImageGallery';
+import HomeFlexBox from './components/HomeFlexBox';
+import SocialNavigation from './SocialNavigation';
+import Footer from './components/footer';
+import TestLogo from './components/testlogo';
+import RecentProject from './components/RecentProject';
+ 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <ul>
-          <li>Link One</li>
-          <li>Link Two</li>
-          <li>Link Three</li>
-        </ul>
-      </nav>
-      <h1>Personal Portfolio</h1>
-      <p>Say something about yourself here!</p>
-      <figure>
-        <picture>
-          <souce srcset="https://www.fillmurray.com/g/300/400" />
-          <img src="https://www.fillmurray.com/g/300/400" />"
-        </picture>
-        <figcaption>
-          Source: <a href="https://www.fillmurray.com/">www.fillmurray.com/</a>
-        </figcaption>
-      </figure>
-    </div>
+  <Router>
+    <Navbar />
+    <TestLogo />
+    <HomeFlexBox />
+    <SocialNavigation />
+    <RecentProject/>
+    <Footer />
+    <Routes>
+     <Route path="/" element={<Home />} />
+     <Route path="/About" element={<About />} />
+     <Route path="/Contact" element={<Contact />} />
+     <Route path="/Resume" element={<Resume />} />
+     <Route path="/Projects" element={<Projects />} />
+     <Route path='/ImageGallery' element={<ImageGallery />}/>
+     {/* <Route path="/homeFlexBox" element={<homeFlexBox />} /> */}
+     
+   </Routes>
+ </Router>
   );
 }
 
